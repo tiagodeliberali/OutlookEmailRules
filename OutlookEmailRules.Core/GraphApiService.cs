@@ -13,12 +13,16 @@ public class GraphApiService : IGraphApiService
     private readonly HttpClient _httpClient;
     private readonly JsonSerializerOptions _options;
 
-    public GraphApiService(string accessToken)
+    public GraphApiService(string accessToken) : this(new AuthenticationHeaderValue("Bearer", accessToken))
+    {
+    }
+
+    public GraphApiService(AuthenticationHeaderValue authHeader)
     {
         _httpClient = new HttpClient();
 
         // Add the access token to the Authorization header of the HttpRequestMessage object
-        _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+        _httpClient.DefaultRequestHeaders.Authorization = authHeader;
 
         _options = new JsonSerializerOptions
         {

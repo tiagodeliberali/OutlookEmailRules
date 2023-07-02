@@ -15,5 +15,5 @@ public class FolderWithRules
 
     public List<MessageRule> Rules { get; set; }
 
-    public List<FolderWithRules> SubFolders { get; set; };
+    public List<FolderWithRules> SubFolders { get; set; }
 }
