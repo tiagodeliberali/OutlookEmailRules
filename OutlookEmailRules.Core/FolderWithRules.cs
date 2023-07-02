@@ -8,11 +8,12 @@ public class FolderWithRules
     {
         Folder = folder;
         Rules = messageRules;
+        SubFolders = new List<FolderWithRules>(folder.ChildFolderCount ?? 0);
     }
 
     public MailFolder Folder { get; set; }
 
     public List<MessageRule> Rules { get; set; }
 
-    public List<FolderWithRules> SubFolders { get; set; } = new();
+    public List<FolderWithRules> SubFolders { get; set; };
 }
